@@ -5,21 +5,21 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
 import Reveal, { RevealGroup, RevealItem } from "@/components/visual/Reveal";
-import boniImg from "@/assets/team/boni-aliko.jpeg.asset.json";
-import abdiImg from "@/assets/team/abdi-birissa.jpeg.asset.json";
-import kalkidanImg from "@/assets/team/kalkidan-zenebe.jpg.asset.json";
-import abelImg from "@/assets/team/abel-desalegn.jpg.asset.json";
-import bonsaImg from "@/assets/team/bonsa-aliko.jpeg.asset.json";
-import hawiImg from "@/assets/team/hawi.jpg.asset.json";
+import boniImg from "@/assets/team/boni-aliko.jpeg";
+import abdiImg from "@/assets/team/abdi-birissa.jpeg";
+import kalkidanImg from "@/assets/team/kalkidan-zenebe.jpg";
+import abelImg from "@/assets/team/abel-desalegn.jpg";
+import bonsaImg from "@/assets/team/bonsa-aliko.jpeg";
+import hawiImg from "@/assets/team/hawi.jpg";
 import yohannesImg from "@/assets/team/yohannes-solomon.jpeg";
 
 const executives = [
-  { name: "Boni Aliko", title: "Founder & Chief Executive Officer", initials: "BA", image: boniImg.url, linkedin: "https://www.linkedin.com/in/bonialiko12" },
-  { name: "Abdi Birassa", title: "Chief Operating Officer", initials: "AB", image: abdiImg.url, linkedin: "https://www.linkedin.com/in/abdi-aliko-1103a4128" },
-  { name: "Kalkidan Zenebe", title: "Chief Product Officer", initials: "KZ", image: kalkidanImg.url, linkedin: "https://www.linkedin.com/in/kalkidanzenebe" },
-  { name: "Abel Desalegn", title: "Chief Technology Officer", initials: "AD", image: abelImg.url, linkedin: "https://www.linkedin.com/in/abel-desalegn" },
-  { name: "Bonsa Aliko", title: "Chief Growth & Marketing Officer", initials: "BA", image: bonsaImg.url, linkedin: "https://www.linkedin.com/in/bonsa-birassa-aliko-a93959176" },
-  { name: "Hawi Berhanu", title: "Chief of Staff & Head of People Operations", initials: "HB", image: hawiImg.url },
+  { name: "Boni Aliko", title: "Founder & Chief Executive Officer", initials: "BA", image: boniImg, linkedin: "https://www.linkedin.com/in/bonialiko12" },
+  { name: "Abdi Birassa", title: "Chief Operating Officer", initials: "AB", image: abdiImg, linkedin: "https://www.linkedin.com/in/abdi-aliko-1103a4128" },
+  { name: "Kalkidan Zenebe", title: "Chief Product Officer", initials: "KZ", image: kalkidanImg, linkedin: "https://www.linkedin.com/in/kalkidanzenebe" },
+  { name: "Abel Desalegn", title: "Chief Technology Officer", initials: "AD", image: abelImg, linkedin: "https://www.linkedin.com/in/abel-desalegn" },
+  { name: "Bonsa Aliko", title: "Chief Growth & Marketing Officer", initials: "BA", image: bonsaImg, linkedin: "https://www.linkedin.com/in/bonsa-birassa-aliko-a93959176" },
+  { name: "Hawi Berhanu", title: "Chief of Staff & Head of People Operations", initials: "HB", image: hawiImg },
 ];
 
 const advisors = [

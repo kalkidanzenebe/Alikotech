@@ -11,6 +11,7 @@ import kalkidanImg from "@/assets/team/kalkidan-zenebe.jpg.asset.json";
 import abelImg from "@/assets/team/abel-desalegn.jpg.asset.json";
 import bonsaImg from "@/assets/team/bonsa-aliko.jpeg.asset.json";
 import hawiImg from "@/assets/team/hawi.jpg.asset.json";
+import yohannesImg from "@/assets/team/yohannes-solomon.jpeg";
 
 const executives = [
   { name: "Boni Aliko", title: "Founder & Chief Executive Officer", initials: "BA", image: boniImg.url, linkedin: "https://www.linkedin.com/in/bonialiko12" },
@@ -21,10 +22,8 @@ const executives = [
   { name: "Hawi Berhanu", title: "Chief of Staff & Head of People Operations", initials: "HB", image: hawiImg.url },
 ];
 
-
 const advisors = [
-  { name: "Robel Tesgaye", title: "Senior Construction Industry & Infrastructure Advisor", initials: "RT", image: undefined },
-  { name: "Kidus Ayeleneh Admassu, Ph.D.", title: "Enterprise Technology, Cloud & AI Advisor", initials: "KA", image: undefined },
+  { name: "Yohannes Solomon", title: "Senior Strategic Advisor and Construction Expert", initials: "YS", image: yohannesImg },
   { name: "Muaz Kibur", title: "Construction Technology Engineering Advisor", initials: "MK", image: undefined },
   { name: "Dawit Mereg", title: "Platform Architecture & Engineering Advisor", initials: "DM", image: undefined },
 ];
@@ -320,7 +319,7 @@ const Leadership = () => {
 
             <RevealGroup
               as="ul"
-              className="mt-6 flex flex-nowrap gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
+              className="mt-6 flex flex-nowrap gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden"
             >
               {advisors.map((a) => (
                 <RevealItem
@@ -332,11 +331,6 @@ const Leadership = () => {
                 </RevealItem>
               ))}
             </RevealGroup>
-
-            <Reveal className="mt-5 max-w-3xl text-xs leading-relaxed text-primary-foreground/65">
-              Advisory role only. No governing authority. Prospective advisors are subject to written acceptance
-              and defined mandates, and do not represent their employers.
-            </Reveal>
           </div>
         </section>
       </main>

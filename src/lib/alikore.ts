@@ -1,5 +1,5 @@
 /** Links to the Alikore product website (AlikoTech's flagship product). */
-export const ALIKORE_URL = "https://alikore.vercel.app";
+export const ALIKORE_URL = "https://alikore.alikohub.com";
 
 export const alikore = {
   home: ALIKORE_URL,

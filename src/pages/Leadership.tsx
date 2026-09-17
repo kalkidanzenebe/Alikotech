@@ -196,10 +196,6 @@ const LeadershipRow = () => {
         ))}
       </div>
 
-      {/* Edge fades hint at more content */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[hsl(var(--section-navy))] to-transparent" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[hsl(var(--section-navy))] to-transparent" aria-hidden="true" />
-
       <div className="mt-6 flex items-center justify-end gap-3">
         <button
           type="button"

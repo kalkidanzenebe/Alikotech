@@ -65,7 +65,7 @@ const WhatWeBuildSection = () => (
               Construction Project Control &amp; Management
             </p>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-primary-foreground/80">
-              Field updates, project records, coordination, cost visibility, and AI assisted workflows in one
+              Field updates, project records, coordination, and cost visibility in one
               shared workspace.
             </p>
 

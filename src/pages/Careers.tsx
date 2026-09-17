@@ -1,104 +1,75 @@
-import { ExternalLink, Users, Globe, Lightbulb, Target } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
-import Reveal, { RevealGroup, RevealItem } from "@/components/visual/Reveal";
-import SectionHeader from "@/components/visual/SectionHeader";
-import teamPhoto from "@/assets/team-construction.jpg";
-
-const values = [
-  {
-    icon: Target,
-    title: "Practical Impact",
-    description: "We build tools that solve real field problems, tested against daily construction workflows.",
-  },
-  {
-    icon: Globe,
-    title: "Africa First",
-    description: "Designed for African conditions: offline sites, multi-currency projects, mobile field teams.",
-  },
-  {
-    icon: Users,
-    title: "Built With Users",
-    description: "Engineers, site managers, and finance teams help shape our roadmap. We listen first.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Thoughtful Technology",
-    description: "We use AI where it genuinely helps, keep humans in control, and avoid unproven claims.",
-  },
-];
+import alikoLogo from "@/assets/alikotech-logo.png";
 
 const Careers = () => (
   <>
     <Seo
       title="Careers | AlikoTech"
-      description="Explore opportunities to help AlikoTech build practical technology for construction."
+      description="Explore career opportunities at AlikoTech and AlikoHub. We are building technology for construction in emerging markets."
       path="/careers"
     />
     <Navbar />
-    <main>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={teamPhoto} alt="AlikoTech and construction team working together" className="h-full w-full object-cover" loading="eager" />
-          <div className="absolute inset-0 overlay-editorial" />
-        </div>
-        <div className="container-max relative z-10 py-20 sm:py-24">
-          <Reveal className="max-w-2xl">
-            <span className="eyebrow">Careers</span>
-            <h1 className="mt-5 display-1 text-primary-foreground">
-              Help build technology for construction.
-            </h1>
-            <p className="mt-5 body-lg text-primary-foreground/85">
-              AlikoTech is building practical technology for construction teams, starting with Alikore and
-              the Ethiopian market. We are looking for people who understand technology, construction,
-              product, and the realities of emerging markets.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+    <main className="relative flex min-h-[calc(100vh-4rem)] items-center justify-center overflow-hidden px-4 py-16 section-navy-bg md:min-h-[calc(100vh-4.5rem)]">
+      {/* Subtle ambient backdrop */}
+      <div className="pointer-events-none absolute inset-0 blueprint-grid-dark opacity-25" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
+        aria-hidden="true"
+      />
 
-      <section className="section-y-tight bg-background">
-        <div className="container-max">
-          <SectionHeader
-            align="center"
-            eyebrow="Work With Us"
-            title={<>Build with purpose.</>}
-            intro="Join a team focused on making construction management simpler, more transparent, and more reliable across Africa."
-          />
+      <div className="relative z-10 w-full flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full max-w-md rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.05] p-7 text-center shadow-[0_24px_60px_-20px_hsl(214_52%_5%/0.9)] backdrop-blur-xl sm:p-8"
+        >
+          {/* Active status indicator */}
+          <div className="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3.5 py-1 text-xs font-semibold text-emerald-300">
+            <span>Active Openings</span>
+          </div>
 
-          <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" as="ul">
-            {values.map((v) => (
-              <RevealItem key={v.title} as="li" className="card-premium">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                  <v.icon className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <h3 className="mt-4 text-base font-bold text-foreground">{v.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.description}</p>
-              </RevealItem>
-            ))}
-          </RevealGroup>
+          {/* Prominent Logo */}
+          <div className="mt-6 flex justify-center">
+            <img
+              src={alikoLogo}
+              alt="AlikoTech"
+              className="h-12 w-auto object-contain sm:h-14"
+              loading="eager"
+            />
+          </div>
 
-          <Reveal className="mt-10 flex flex-col items-center justify-center gap-4 rounded-2xl border border-border/60 bg-muted/40 p-8 text-center sm:flex-row sm:justify-between sm:p-10 sm:text-left">
-            <div className="space-y-2">
-              <h3 className="text-lg font-bold text-foreground">Find your next role</h3>
-              <p className="max-w-md text-sm text-muted-foreground">
-                All open positions are posted on the AlikoHub careers page. Check back if nothing matches
-                today, we are growing steadily.
-              </p>
-            </div>
+          {/* Title & Description */}
+          <h1 className="mt-5 text-xl font-bold tracking-tight text-primary-foreground sm:text-2xl">
+            Careers at AlikoTech
+          </h1>
+
+          <p className="mt-3 text-sm leading-relaxed text-primary-foreground/80">
+            Explore opportunities across engineering, product design, and operations.
+          </p>
+
+          {/* CTA Link */}
+          <div className="mt-7">
             <a
               href="https://career.alikohub.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-accent-lg shrink-0"
+              className="btn-accent inline-flex w-full items-center justify-center gap-2 text-sm font-bold shadow-lg shadow-accent/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
-              View Open Roles
-              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              <span>Explore Open Positions</span>
+              <ArrowUpRight size={16} aria-hidden="true" />
             </a>
-          </Reveal>
-        </div>
-      </section>
+          </div>
+
+          <p className="mt-3.5 text-[11px] text-primary-foreground/45">
+            career.alikohub.com
+          </p>
+        </motion.div>
+      </div>
     </main>
     <Footer />
   </>

@@ -2,11 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
 import HeroSection from "@/components/home/HeroSection";
-import WhatWeBuildSection from "@/components/home/WhatWeBuildSection";
 import DataStorySection from "@/components/home/DataStorySection";
 import MarketRealitySection from "@/components/home/MarketRealitySection";
 import WhatAlikoreConnectsSection from "@/components/home/WhatAlikoreConnectsSection";
-import WhyConstructionSection from "@/components/home/WhyConstructionSection";
 import WhereWeBuildSection from "@/components/home/WhereWeBuildSection";
 import HowWeBuildSection from "@/components/home/HowWeBuildSection";
 import PilotSection from "@/components/home/PilotSection";
@@ -22,11 +20,8 @@ const Index = () => (
     <Navbar />
     <main>
       <HeroSection />
-      <WhatWeBuildSection />
       <DataStorySection />
       <MarketRealitySection />
-
-      <WhyConstructionSection />
       <WhatAlikoreConnectsSection />
       <HowWeBuildSection />
       <WhereWeBuildSection />

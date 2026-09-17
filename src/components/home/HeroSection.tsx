@@ -5,7 +5,6 @@ import heroBg from "@/assets/africa-skyline.jpg";
 import { alikore } from "@/lib/alikore";
 import { EASE } from "@/components/visual/Reveal";
 
-const chain = ["Field", "Records", "Teams", "Cost"];
 
 const HeroSection = () => {
   const reduced = useReducedMotion();
@@ -81,27 +80,6 @@ const HeroSection = () => {
               About AlikoTech
             </Link>
           </div>
-
-          {/* Chain strip */}
-          <ul className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-2 border-t border-primary-foreground/15 pt-6">
-            {chain.map((c, i) => (
-              <li key={c} className="flex items-center gap-2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-primary-foreground/80">
-                  {c}
-                </span>
-                {i < chain.length - 1 && (
-                  <span aria-hidden="true" className="h-[1px] w-5 bg-accent/60" />
-                )}
-              </li>
-            ))}
-            <li className="ml-1 rounded-full border border-accent/45 bg-accent/15 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-accent">
-              AI assisted
-            </li>
-          </ul>
-
-          <p className="mt-5 text-sm text-primary-foreground/75">
-            Built for African construction conditions. Designed to scale beyond them.
-          </p>
         </motion.div>
       </div>
     </section>

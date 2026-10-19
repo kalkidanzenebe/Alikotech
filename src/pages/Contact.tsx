@@ -1,5 +1,14 @@
 import { useState, useId } from "react";
-import { Mail, MapPin, ArrowUpRight, User, Building2, Globe, Phone, Sparkles } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  ArrowUpRight,
+  User,
+  Building2,
+  Globe,
+  Phone,
+  Sparkles,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
@@ -55,7 +64,9 @@ const fieldShell =
 
 const Contact = () => {
   const [form, setForm] = useState<ContactFormState>(emptyForm);
-  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormState, string>>>({});
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof ContactFormState, string>>
+  >({});
   const [submitting, setSubmitting] = useState(false);
   const formId = useId();
 
@@ -68,7 +79,8 @@ const Contact = () => {
     const next: Partial<Record<keyof ContactFormState, string>> = {};
     if (!form.name.trim()) next.name = "Enter your full name.";
     if (!form.email.trim()) next.email = "Enter your email address.";
-    else if (!/^\S+@\S+\.\S+$/.test(form.email)) next.email = "Enter a valid email address.";
+    else if (!/^\S+@\S+\.\S+$/.test(form.email))
+      next.email = "Enter a valid email address.";
     if (!form.inquiry) next.inquiry = "Select an inquiry type.";
     if (!form.message.trim()) next.message = "Add a short message.";
     setErrors(next);
@@ -87,7 +99,10 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) {
-      toast({ title: "Please fix the highlighted fields", variant: "destructive" });
+      toast({
+        title: "Please fix the highlighted fields",
+        variant: "destructive",
+      });
       return;
     }
     setSubmitting(true);
@@ -95,7 +110,8 @@ const Contact = () => {
       await submitContactRequest(form);
       toast({
         title: "Message saved",
-        description: "This form isn't connected to a backend yet, so nothing was sent. We'll follow up once it is.",
+        description:
+          "This form isn't connected to a backend yet, so nothing was sent. We'll follow up once it is.",
       });
       setForm(emptyForm);
     } finally {
@@ -106,12 +122,16 @@ const Contact = () => {
   const fieldError = (key: keyof ContactFormState) => errors[key];
   const errorText = (key: keyof ContactFormState) =>
     fieldError(key) ? (
-      <p id={`${formId}-${key}-error`} className="text-xs font-medium text-destructive">
+      <p
+        id={`${formId}-${key}-error`}
+        className="text-xs font-medium text-destructive"
+      >
         {fieldError(key)}
       </p>
     ) : null;
 
-  const iconClass = "pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground";
+  const iconClass =
+    "pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground";
 
   return (
     <>
@@ -123,7 +143,10 @@ const Contact = () => {
       <Navbar />
       <main className="relative overflow-hidden bg-background">
         {/* Extremely subtle blueprint / contour treatment */}
-        <div className="absolute inset-0 blueprint-grid opacity-70" aria-hidden="true" />
+        <div
+          className="absolute inset-0 blueprint-grid opacity-70"
+          aria-hidden="true"
+        />
         <div
           className="pointer-events-none absolute inset-x-0 top-0 h-[420px] opacity-[0.25]"
           aria-hidden="true"
@@ -136,9 +159,12 @@ const Contact = () => {
         <section className="container-max relative z-10 pb-20 pt-24 sm:pt-28">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="eyebrow text-accent">Contact</span>
-            <h1 className="mt-4 display-1 text-foreground">Let's build together.</h1>
+            <h1 className="mt-4 display-1 text-foreground">
+              Let's build together.
+            </h1>
             <p className="mt-4 body-lg text-muted-foreground">
-              Have a question, want to explore a partnership, or interested in Alikore? We'd love to hear from you.
+              Have a question, want to explore a partnership, or interested in
+              Alikore? We'd love to hear from you.
             </p>
           </Reveal>
 
@@ -153,7 +179,10 @@ const Contact = () => {
                   <span className="block text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
                     Email Us
                   </span>
-                  <a href={`mailto:${legalEmail}`} className="block truncate text-sm font-semibold text-foreground hover:text-accent">
+                  <a
+                    href={`mailto:${legalEmail}`}
+                    className="block truncate text-sm font-semibold text-foreground hover:text-accent"
+                  >
                     {legalEmail}
                   </a>
                 </span>
@@ -166,7 +195,9 @@ const Contact = () => {
                   <span className="block text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
                     Our Offices
                   </span>
-                  <span className="block text-sm font-semibold text-foreground">SeaTac, WA · Addis Ababa, ET</span>
+                  <span className="block text-sm font-semibold text-foreground">
+                    SeaTac, WA · Addis Ababa, ET
+                  </span>
                 </span>
               </li>
             </ul>
@@ -174,7 +205,11 @@ const Contact = () => {
 
           {/* Form: the visual focus */}
           <Reveal delay={0.14} className="mx-auto mt-8 max-w-3xl">
-            <form onSubmit={handleSubmit} noValidate className="card-premium space-y-6 p-6 sm:p-8">
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="card-premium space-y-6 p-6 sm:p-8"
+            >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor={`${formId}-name`}>Full Name *</Label>
@@ -188,7 +223,9 @@ const Contact = () => {
                       value={form.name}
                       onChange={(e) => set("name")(e.target.value)}
                       aria-invalid={!!fieldError("name")}
-                      aria-describedby={fieldError("name") ? `${formId}-name-error` : undefined}
+                      aria-describedby={
+                        fieldError("name") ? `${formId}-name-error` : undefined
+                      }
                     />
                   </div>
                   {errorText("name")}
@@ -207,7 +244,11 @@ const Contact = () => {
                       value={form.email}
                       onChange={(e) => set("email")(e.target.value)}
                       aria-invalid={!!fieldError("email")}
-                      aria-describedby={fieldError("email") ? `${formId}-email-error` : undefined}
+                      aria-describedby={
+                        fieldError("email")
+                          ? `${formId}-email-error`
+                          : undefined
+                      }
                     />
                   </div>
                   {errorText("email")}
@@ -230,7 +271,11 @@ const Contact = () => {
                 <div className="space-y-2">
                   <Label htmlFor={`${formId}-company`}>Company</Label>
                   <div className="relative">
-                    <Building2 size={16} className={iconClass} aria-hidden="true" />
+                    <Building2
+                      size={16}
+                      className={iconClass}
+                      aria-hidden="true"
+                    />
                     <Input
                       id={`${formId}-company`}
                       placeholder="Enter your company"
@@ -262,13 +307,19 @@ const Contact = () => {
                       id={`${formId}-inquiry`}
                       className="h-11 transition-colors focus:border-accent focus:ring-2 focus:ring-accent/25"
                       aria-invalid={!!fieldError("inquiry")}
-                      aria-describedby={fieldError("inquiry") ? `${formId}-inquiry-error` : undefined}
+                      aria-describedby={
+                        fieldError("inquiry")
+                          ? `${formId}-inquiry-error`
+                          : undefined
+                      }
                     >
                       <SelectValue placeholder="Select inquiry type" />
                     </SelectTrigger>
                     <SelectContent>
                       {inquiryTypes.map((t) => (
-                        <SelectItem key={t} value={t}>{t}</SelectItem>
+                        <SelectItem key={t} value={t}>
+                          {t}
+                        </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
@@ -287,17 +338,29 @@ const Contact = () => {
                   value={form.message}
                   onChange={(e) => set("message")(e.target.value)}
                   aria-invalid={!!fieldError("message")}
-                  aria-describedby={fieldError("message") ? `${formId}-message-error` : undefined}
+                  aria-describedby={
+                    fieldError("message")
+                      ? `${formId}-message-error`
+                      : undefined
+                  }
                 />
                 {errorText("message")}
               </div>
 
               {/* Compact pilot invitation */}
               <div className="flex items-start gap-3 rounded-lg border border-accent/25 bg-accent/[0.06] p-4">
-                <Sparkles size={16} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
+                <Sparkles
+                  size={16}
+                  className="mt-0.5 shrink-0 text-accent"
+                  aria-hidden="true"
+                />
                 <p className="text-sm leading-relaxed text-foreground">
-                  <span className="font-bold">Interested in piloting Alikore?</span>{" "}
-                  <span className="text-muted-foreground">Let us know in your message.</span>
+                  <span className="font-bold">
+                    Interested in piloting Alikore?
+                  </span>{" "}
+                  <span className="text-muted-foreground">
+                    Let us know in your message.
+                  </span>
                   {form.inquiry === "Pilot Program" && (
                     <a
                       href={alikore.pilot}
@@ -323,11 +386,21 @@ const Contact = () => {
           </Reveal>
 
           {/* Office detail, compact */}
-          <Reveal delay={0.2} className="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
+          <Reveal
+            delay={0.2}
+            className="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-2"
+          >
             {offices.map((o) => (
-              <div key={o.label} className="rounded-xl border border-border bg-card/70 p-4">
-                <span className="text-[11px] font-bold uppercase tracking-widest text-accent">{o.label}</span>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{o.address}</p>
+              <div
+                key={o.label}
+                className="rounded-xl border border-border bg-card/70 p-4"
+              >
+                <span className="text-[11px] font-bold uppercase tracking-widest text-accent">
+                  {o.label}
+                </span>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  {o.address}
+                </p>
               </div>
             ))}
           </Reveal>

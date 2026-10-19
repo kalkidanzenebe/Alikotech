@@ -14,18 +14,68 @@ import hawiImg from "@/assets/team/hawi.jpg";
 import yohannesImg from "@/assets/team/yohannes-solomon.jpeg";
 
 const executives = [
-  { name: "Boni Aliko", title: "Founder & Chief Executive Officer", initials: "BA", image: boniImg, linkedin: "https://www.linkedin.com/in/bonialiko12" },
-  { name: "Abdi Birassa", title: "Chief Operating Officer", initials: "AB", image: abdiImg, linkedin: "https://www.linkedin.com/in/abdi-aliko-1103a4128" },
-  { name: "Kalkidan Zenebe", title: "Chief Product Officer", initials: "KZ", image: kalkidanImg, linkedin: "https://www.linkedin.com/in/kalkidanzenebe" },
-  { name: "Abel Desalegn", title: "Chief Technology Officer", initials: "AD", image: abelImg, linkedin: "https://www.linkedin.com/in/abel-desalegn" },
-  { name: "Bonsa Aliko", title: "Chief Growth & Marketing Officer", initials: "BA", image: bonsaImg, linkedin: "https://www.linkedin.com/in/bonsa-birassa-aliko-a93959176" },
-  { name: "Hawi Berhanu", title: "Chief of Staff & Head of People Operations", initials: "HB", image: hawiImg },
+  {
+    name: "Boni Aliko",
+    title: "Founder & Chief Executive Officer",
+    initials: "BA",
+    image: boniImg,
+    linkedin: "https://www.linkedin.com/in/bonialiko12",
+  },
+  {
+    name: "Abdi Birassa",
+    title: "Chief Operating Officer",
+    initials: "AB",
+    image: abdiImg,
+    linkedin: "https://www.linkedin.com/in/abdi-aliko-1103a4128",
+  },
+  {
+    name: "Kalkidan Zenebe",
+    title: "Chief Product Officer",
+    initials: "KZ",
+    image: kalkidanImg,
+    linkedin: "https://www.linkedin.com/in/kalkidanzenebe",
+  },
+  {
+    name: "Abel Desalegn",
+    title: "Chief Technology Officer",
+    initials: "AD",
+    image: abelImg,
+    linkedin: "https://www.linkedin.com/in/abel-desalegn",
+  },
+  {
+    name: "Bonsa Aliko",
+    title: "Chief Growth & Marketing Officer",
+    initials: "BA",
+    image: bonsaImg,
+    linkedin: "https://www.linkedin.com/in/bonsa-birassa-aliko-a93959176",
+  },
+  {
+    name: "Hawi Berhanu",
+    title: "Chief of Staff & Head of People Operations",
+    initials: "HB",
+    image: hawiImg,
+  },
 ];
 
 const advisors = [
-  { name: "Yohannes Solomon", title: "Senior Strategic Advisor and Construction Expert", initials: "YS", image: yohannesImg },
-  { name: "Muaz Kibur", title: "Construction Technology Engineering Advisor", initials: "MK", image: undefined },
-  { name: "Dawit Mereg", title: "Platform Architecture & Engineering Advisor", initials: "DM", image: undefined },
+  {
+    name: "Yohannes Solomon",
+    title: "Senior Strategic Advisor and Construction Expert",
+    initials: "YS",
+    image: yohannesImg,
+  },
+  {
+    name: "Muaz Kibur",
+    title: "Construction Technology Engineering Advisor",
+    initials: "MK",
+    image: undefined,
+  },
+  {
+    name: "Dawit Mereg",
+    title: "Platform Architecture & Engineering Advisor",
+    initials: "DM",
+    image: undefined,
+  },
 ];
 
 /** Circular portrait with initials fallback. */
@@ -34,7 +84,12 @@ const Avatar = ({
   name,
   image,
   size = "lg",
-}: { initials: string; name?: string; image?: string; size?: "lg" | "sm" }) => (
+}: {
+  initials: string;
+  name?: string;
+  image?: string;
+  size?: "lg" | "sm";
+}) => (
   <div
     className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-primary-foreground/15 bg-primary-foreground/[0.07] ${
       size === "lg" ? "h-24 w-24" : "h-12 w-12"
@@ -49,13 +104,20 @@ const Avatar = ({
       />
     ) : size === "lg" ? (
       <>
-        <User className="text-primary-foreground/55" size={34} strokeWidth={1.5} aria-hidden="true" />
+        <User
+          className="text-primary-foreground/55"
+          size={34}
+          strokeWidth={1.5}
+          aria-hidden="true"
+        />
         <span className="absolute bottom-2 text-[10px] font-bold tracking-widest text-primary-foreground/50">
           {initials}
         </span>
       </>
     ) : (
-      <span className="text-xs font-bold tracking-widest text-primary-foreground/70">{initials}</span>
+      <span className="text-xs font-bold tracking-widest text-primary-foreground/70">
+        {initials}
+      </span>
     )}
   </div>
 );
@@ -63,11 +125,19 @@ const Avatar = ({
 const LeaderCard = ({ person }: { person: (typeof executives)[number] }) => (
   <article className="group flex h-full flex-col items-center rounded-2xl border border-primary-foreground/12 bg-primary-foreground/[0.05] p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:bg-primary-foreground/[0.08] hover:shadow-[0_18px_40px_-20px_hsl(var(--accent)/0.45)]">
     <div className="transition-transform duration-500 group-hover:scale-[1.04]">
-      <Avatar initials={person.initials} name={person.name} image={person.image} />
+      <Avatar
+        initials={person.initials}
+        name={person.name}
+        image={person.image}
+      />
     </div>
 
-    <h3 className="mt-5 text-base font-bold leading-snug text-primary-foreground">{person.name}</h3>
-    <p className="mt-1.5 text-xs leading-relaxed text-primary-foreground/70">{person.title}</p>
+    <h3 className="mt-5 text-base font-bold leading-snug text-primary-foreground">
+      {person.name}
+    </h3>
+    <p className="mt-1.5 text-xs leading-relaxed text-primary-foreground/70">
+      {person.title}
+    </p>
     {person.linkedin ? (
       <a
         href={person.linkedin}
@@ -148,20 +218,25 @@ const LeadershipRow = () => {
   const onPointerMove = (e: React.PointerEvent) => {
     const el = trackRef.current;
     if (!dragging.current || !el) return;
-    el.scrollLeft = dragStart.current.scroll - (e.clientX - dragStart.current.x);
+    el.scrollLeft =
+      dragStart.current.scroll - (e.clientX - dragStart.current.x);
     normalize();
   };
 
   const endDrag = (e: React.PointerEvent) => {
     const el = trackRef.current;
-    if (el?.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
+    if (el?.hasPointerCapture(e.pointerId))
+      el.releasePointerCapture(e.pointerId);
     dragging.current = false;
   };
 
   const scrollBy = (dir: 1 | -1) => {
     const el = trackRef.current;
     if (!el) return;
-    el.scrollBy({ left: dir * Math.max(el.clientWidth * 0.6, 260), behavior: "smooth" });
+    el.scrollBy({
+      left: dir * Math.max(el.clientWidth * 0.6, 260),
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -182,7 +257,9 @@ const LeadershipRow = () => {
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
-        onScroll={() => { if (!dragging.current) normalize(); }}
+        onScroll={() => {
+          if (!dragging.current) normalize();
+        }}
         className="flex cursor-grab gap-4 overflow-x-auto overscroll-x-contain pb-2 select-none active:cursor-grabbing [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {loop.map((e, i) => (
@@ -218,7 +295,6 @@ const LeadershipRow = () => {
   );
 };
 
-
 const AdvisorCard = ({ person }: { person: (typeof advisors)[number] }) => (
   <article className="group flex items-center gap-3.5 rounded-xl border border-primary-foreground/12 bg-primary-foreground/[0.05] p-3.5 backdrop-blur-sm transition-all duration-300 hover:border-accent/50 hover:bg-primary-foreground/[0.08] hover:shadow-[0_18px_40px_-20px_hsl(var(--accent)/0.35)]">
     {person.image ? (
@@ -239,16 +315,19 @@ const AdvisorCard = ({ person }: { person: (typeof advisors)[number] }) => (
     )}
     <div className="min-w-0 flex-1">
       <div className="flex items-center gap-2">
-        <h3 className="truncate text-sm font-bold text-primary-foreground">{person.name}</h3>
+        <h3 className="truncate text-sm font-bold text-primary-foreground">
+          {person.name}
+        </h3>
         <span className="shrink-0 rounded border border-accent/35 bg-accent/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent">
           Prospective
         </span>
       </div>
-      <p className="mt-0.5 line-clamp-2 text-xs leading-snug text-primary-foreground/70">{person.title}</p>
+      <p className="mt-0.5 line-clamp-2 text-xs leading-snug text-primary-foreground/70">
+        {person.title}
+      </p>
     </div>
   </article>
 );
-
 
 const Leadership = () => {
   const reduced = useReducedMotion();
@@ -264,15 +343,21 @@ const Leadership = () => {
       <main>
         {/* Hero + one horizontal leadership row on a single dark navy canvas */}
         <section className="relative overflow-hidden section-navy-bg">
-          <div className="absolute inset-0 blueprint-grid-dark opacity-60" aria-hidden="true" />
+          <div
+            className="absolute inset-0 blueprint-grid-dark opacity-60"
+            aria-hidden="true"
+          />
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.35]"
             aria-hidden="true"
             style={{
-              backgroundImage: "radial-gradient(hsl(var(--accent) / 0.35) 1px, transparent 1px)",
+              backgroundImage:
+                "radial-gradient(hsl(var(--accent) / 0.35) 1px, transparent 1px)",
               backgroundSize: "26px 26px",
-              maskImage: "radial-gradient(70% 60% at 70% 20%, black, transparent 75%)",
-              WebkitMaskImage: "radial-gradient(70% 60% at 70% 20%, black, transparent 75%)",
+              maskImage:
+                "radial-gradient(70% 60% at 70% 20%, black, transparent 75%)",
+              WebkitMaskImage:
+                "radial-gradient(70% 60% at 70% 20%, black, transparent 75%)",
             }}
           />
           {!reduced && (
@@ -287,10 +372,12 @@ const Leadership = () => {
           <div className="container-max relative z-10 pb-16 pt-24 sm:pt-28">
             <Reveal className="max-w-2xl">
               <span className="eyebrow text-accent">Leadership</span>
-              <h1 className="mt-5 display-1 text-primary-foreground">The leaders building AlikoTech</h1>
+              <h1 className="mt-5 display-1 text-primary-foreground">
+                The leaders building AlikoTech
+              </h1>
               <p className="mt-5 body-lg text-primary-foreground/85">
-                Experienced builders, operators, and engineers united by a mission to transform construction in
-                Africa through technology.
+                Experienced builders, operators, and engineers united by a
+                mission to transform construction in Africa through technology.
               </p>
             </Reveal>
 
@@ -302,14 +389,20 @@ const Leadership = () => {
 
         {/* Strategic advisors on the same dark navy canvas as the executive row */}
         <section className="relative overflow-hidden section-navy-bg">
-          <div className="absolute inset-0 blueprint-grid-dark opacity-40" aria-hidden="true" />
+          <div
+            className="absolute inset-0 blueprint-grid-dark opacity-40"
+            aria-hidden="true"
+          />
           <div className="container-max relative z-10 pb-16 pt-16 sm:pt-20">
             <Reveal className="max-w-2xl">
               <span className="eyebrow text-accent">Advisory</span>
-              <h2 className="mt-4 display-2 text-primary-foreground">Our Strategic Advisory People</h2>
+              <h2 className="mt-4 display-2 text-primary-foreground">
+                Our Strategic Advisory People
+              </h2>
               <p className="mt-4 text-sm leading-relaxed text-primary-foreground/75">
-                A focused network built for defined contribution, active participation, and explicit consent.
-                All names below are prospective advisors serving in their individual capacity.
+                A focused network built for defined contribution, active
+                participation, and explicit consent. All names below are
+                prospective advisors serving in their individual capacity.
               </p>
             </Reveal>
 

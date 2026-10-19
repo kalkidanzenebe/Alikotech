@@ -15,7 +15,10 @@ const Careers = () => (
     <Navbar />
     <main className="relative flex min-h-[calc(100vh-4rem)] items-center justify-center overflow-hidden px-4 py-16 section-navy-bg md:min-h-[calc(100vh-4.5rem)]">
       {/* Subtle ambient backdrop */}
-      <div className="pointer-events-none absolute inset-0 blueprint-grid-dark opacity-25" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-0 blueprint-grid-dark opacity-25"
+        aria-hidden="true"
+      />
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
         aria-hidden="true"
@@ -49,7 +52,8 @@ const Careers = () => (
           </h1>
 
           <p className="mt-3 text-sm leading-relaxed text-primary-foreground/80">
-            Explore opportunities across engineering, product design, and operations.
+            Explore opportunities across engineering, product design, and
+            operations.
           </p>
 
           {/* CTA Link */}

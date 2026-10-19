@@ -29,7 +29,10 @@ const DashboardLayout = () => {
           <header className="sticky top-0 z-40 flex h-14 items-center gap-3 border-b border-border bg-background/95 px-4 backdrop-blur-sm sm:px-6">
             <SidebarTrigger />
             <div className="h-5 w-px bg-border" aria-hidden="true" />
-            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm">
+            <nav
+              aria-label="Breadcrumb"
+              className="flex items-center gap-1.5 text-sm"
+            >
               <Link
                 to="/dashboard"
                 className="font-semibold text-foreground transition-colors hover:text-accent"
@@ -38,8 +41,15 @@ const DashboardLayout = () => {
               </Link>
               {segmentLabel && (
                 <>
-                  <ChevronRight size={14} aria-hidden="true" className="text-muted-foreground/60" />
-                  <span aria-current="page" className="font-medium text-muted-foreground">
+                  <ChevronRight
+                    size={14}
+                    aria-hidden="true"
+                    className="text-muted-foreground/60"
+                  />
+                  <span
+                    aria-current="page"
+                    className="font-medium text-muted-foreground"
+                  >
                     {segmentLabel}
                   </span>
                 </>

@@ -6,7 +6,7 @@ interface SeoProps {
   path: string;
 }
 
-const BASE = "https://alikotech.com";
+const BASE = "https://alikotech.alikohub.com";
 
 const Seo = ({ title, description, path }: SeoProps) => (
   <Helmet>

@@ -12,7 +12,9 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || "/dashboard";
+  const from =
+    (location.state as { from?: { pathname: string } })?.from?.pathname ||
+    "/dashboard";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +27,11 @@ const Login = () => {
       await login({ email, password });
       navigate(from, { replace: true });
     } catch (err: any) {
-      toast({ title: "Login failed", description: err?.message || "Invalid credentials", variant: "destructive" });
+      toast({
+        title: "Login failed",
+        description: err?.message || "Invalid credentials",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -36,22 +42,37 @@ const Login = () => {
       {/* Brand / story panel */}
       <div className="relative hidden overflow-hidden lg:block">
         <div className="absolute inset-0">
-          <img src={heroBg} alt="" aria-hidden="true" className="h-full w-full object-cover" loading="eager" />
+          <img
+            src={heroBg}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover"
+            loading="eager"
+          />
           <div className="absolute inset-0 overlay-navy" />
-          <div aria-hidden="true" className="absolute inset-0 blueprint-grid-dark mask-fade-edges" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 blueprint-grid-dark mask-fade-edges"
+          />
         </div>
         <div className="relative z-10 flex h-full flex-col justify-between p-12">
           <Link to="/">
-            <img src={alikoLogo} alt="AlikoTech" className="h-10 object-contain" />
+            <img
+              src={alikoLogo}
+              alt="AlikoTech"
+              className="h-10 object-contain"
+            />
           </Link>
           <div className="max-w-md">
-            <span className="eyebrow text-primary-foreground">Alikore Platform</span>
+            <span className="eyebrow text-primary-foreground">
+              Alikore Platform
+            </span>
             <h2 className="mt-4 display-2 text-primary-foreground">
               From AlikoTech to Alikore: project control, live.
             </h2>
             <p className="mt-4 body-lg text-primary-foreground/85">
-              Sign in to manage projects, tasks, contracts, and inspections on Alikore, AlikoTech's construction
-              project control platform.
+              Sign in to manage projects, tasks, contracts, and inspections on
+              Alikore, AlikoTech's construction project control platform.
             </p>
           </div>
           <p className="text-xs text-primary-foreground/60">
@@ -63,7 +84,13 @@ const Login = () => {
       {/* Auth card */}
       <div className="relative flex items-center justify-center overflow-hidden bg-background px-6 py-16">
         <div className="absolute inset-0 lg:hidden">
-          <img src={heroBg} alt="" aria-hidden="true" className="h-full w-full object-cover" loading="eager" />
+          <img
+            src={heroBg}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover"
+            loading="eager"
+          />
           <div className="absolute inset-0 overlay-navy" />
         </div>
 
@@ -71,12 +98,20 @@ const Login = () => {
           <div className="card-premium-dark border border-border/40 bg-card/95 p-8 backdrop-blur-xl lg:border-border lg:bg-card lg:shadow-none">
             <div className="mb-6 text-center lg:hidden">
               <Link to="/">
-                <img src={alikoLogo} alt="AlikoTech" className="mx-auto mb-4 h-14 object-contain" />
+                <img
+                  src={alikoLogo}
+                  alt="AlikoTech"
+                  className="mx-auto mb-4 h-14 object-contain"
+                />
               </Link>
             </div>
             <div className="mb-6 text-center">
-              <h1 className="display-3 text-foreground lg:text-foreground">Welcome back</h1>
-              <p className="mt-1 text-sm text-muted-foreground">Sign in to the Alikore platform</p>
+              <h1 className="display-3 text-foreground lg:text-foreground">
+                Welcome back
+              </h1>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Sign in to the Alikore platform
+              </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">

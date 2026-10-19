@@ -10,9 +10,24 @@ import alikoLogo from "@/assets/alikotech-logo.png";
 import heroBg from "@/assets/africa-skyline.jpg";
 
 const roles = [
-  { value: UserRole.ADMIN, label: "Admin", description: "Full platform access: manage projects, users, and settings", icon: Shield },
-  { value: UserRole.CONTRACTOR, label: "Contractor", description: "Update progress, manage tasks, and view contracts", icon: HardHat },
-  { value: UserRole.CLIENT, label: "Client", description: "View project progress, documents, and approved reports", icon: User },
+  {
+    value: UserRole.ADMIN,
+    label: "Admin",
+    description: "Full platform access: manage projects, users, and settings",
+    icon: Shield,
+  },
+  {
+    value: UserRole.CONTRACTOR,
+    label: "Contractor",
+    description: "Update progress, manage tasks, and view contracts",
+    icon: HardHat,
+  },
+  {
+    value: UserRole.CLIENT,
+    label: "Client",
+    description: "View project progress, documents, and approved reports",
+    icon: User,
+  },
 ];
 
 const SelectRole = () => {
@@ -29,7 +44,11 @@ const SelectRole = () => {
       await refreshProfile();
       navigate("/dashboard", { replace: true });
     } catch (err: any) {
-      toast({ title: "Failed to set role", description: err?.message || "Please try again", variant: "destructive" });
+      toast({
+        title: "Failed to set role",
+        description: err?.message || "Please try again",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -39,19 +58,37 @@ const SelectRole = () => {
     <div className="grid min-h-screen lg:grid-cols-2">
       <div className="relative hidden overflow-hidden lg:block">
         <div className="absolute inset-0">
-          <img src={heroBg} alt="" aria-hidden="true" className="h-full w-full object-cover" loading="eager" />
+          <img
+            src={heroBg}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover"
+            loading="eager"
+          />
           <div className="absolute inset-0 overlay-navy" />
-          <div aria-hidden="true" className="absolute inset-0 blueprint-grid-dark mask-fade-edges" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 blueprint-grid-dark mask-fade-edges"
+          />
         </div>
         <div className="relative z-10 flex h-full flex-col justify-between p-12">
           <Link to="/">
-            <img src={alikoLogo} alt="AlikoTech" className="h-10 object-contain" />
+            <img
+              src={alikoLogo}
+              alt="AlikoTech"
+              className="h-10 object-contain"
+            />
           </Link>
           <div className="max-w-md">
-            <span className="eyebrow text-primary-foreground">Alikore Platform</span>
-            <h2 className="mt-4 display-2 text-primary-foreground">One account, the right view.</h2>
+            <span className="eyebrow text-primary-foreground">
+              Alikore Platform
+            </span>
+            <h2 className="mt-4 display-2 text-primary-foreground">
+              One account, the right view.
+            </h2>
             <p className="mt-4 body-lg text-primary-foreground/85">
-              Alikore tailors the dashboard to how you work: admin, contractor, or client.
+              Alikore tailors the dashboard to how you work: admin, contractor,
+              or client.
             </p>
           </div>
           <p className="text-xs text-primary-foreground/60">
@@ -62,7 +99,13 @@ const SelectRole = () => {
 
       <div className="relative flex items-center justify-center overflow-hidden bg-background px-6 py-16">
         <div className="absolute inset-0 lg:hidden">
-          <img src={heroBg} alt="" aria-hidden="true" className="h-full w-full object-cover" loading="eager" />
+          <img
+            src={heroBg}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover"
+            loading="eager"
+          />
           <div className="absolute inset-0 overlay-navy" />
         </div>
 
@@ -70,12 +113,18 @@ const SelectRole = () => {
           <div className="card-premium-dark border border-border/40 bg-card/95 p-8 backdrop-blur-xl lg:border-border lg:bg-card lg:shadow-none">
             <div className="mb-6 text-center lg:hidden">
               <Link to="/">
-                <img src={alikoLogo} alt="AlikoTech" className="mx-auto mb-4 h-14 object-contain" />
+                <img
+                  src={alikoLogo}
+                  alt="AlikoTech"
+                  className="mx-auto mb-4 h-14 object-contain"
+                />
               </Link>
             </div>
             <div className="mb-6 text-center">
               <h1 className="display-3 text-foreground">Select Your Role</h1>
-              <p className="mt-1 text-sm text-muted-foreground">Choose how you'll use the platform</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Choose how you'll use the platform
+              </p>
             </div>
 
             <div className="space-y-3">
@@ -94,14 +143,22 @@ const SelectRole = () => {
                         : "border-border bg-secondary/40 hover:border-accent/40 hover:bg-secondary/70"
                     }`}
                   >
-                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors ${
-                      isActive ? "bg-accent text-accent-foreground" : "bg-secondary text-muted-foreground"
-                    }`}>
+                    <div
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors ${
+                        isActive
+                          ? "bg-accent text-accent-foreground"
+                          : "bg-secondary text-muted-foreground"
+                      }`}
+                    >
                       <Icon size={20} aria-hidden="true" />
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-foreground">{role.label}</div>
-                      <div className="text-xs text-muted-foreground">{role.description}</div>
+                      <div className="text-sm font-semibold text-foreground">
+                        {role.label}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        {role.description}
+                      </div>
                     </div>
                   </button>
                 );

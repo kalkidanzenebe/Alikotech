@@ -6,5 +6,5 @@ export const alikore = {
   platform: `${ALIKORE_URL}/platform`,
   whoWeServe: `${ALIKORE_URL}/who-we-serve`,
   pilot: `${ALIKORE_URL}/pilot-program`,
-  pricing: `${ALIKORE_URL}/pricing`,
+  pricing: `${ALIKORE_URL}/demo-request`,
 };
